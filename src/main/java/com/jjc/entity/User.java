@@ -15,6 +15,7 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jjc.entity.base.AbstractEntity;
 import com.sun.istack.NotNull;
 
@@ -42,6 +43,7 @@ public class User extends AbstractEntity implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createDatetime;
 	
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "unit_id")
 	private Unit unit;
